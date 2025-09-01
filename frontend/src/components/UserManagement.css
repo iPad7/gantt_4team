@@ -1,0 +1,86 @@
+.user-management {
+  padding: 20px 0;
+}
+
+.user-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.users-table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.user-username {
+  font-family: monospace;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.admin-note {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-note h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.admin-note p {
+  margin: 0 0 20px 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.admin-note code {
+  background-color: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #e83e8c;
+}
+
+.admin-link {
+  text-align: center;
+}
+
+.admin-link .btn {
+  text-decoration: none;
+  display: inline-block;
+}

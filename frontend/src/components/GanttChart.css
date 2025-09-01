@@ -1,0 +1,306 @@
+.gantt-chart {
+  padding: 20px 0;
+}
+
+.gantt-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.gantt-header {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.gantt-header-task {
+  min-width: 200px;
+  padding: 16px;
+  font-weight: 600;
+  color: #333;
+  border-right: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.gantt-header-timeline {
+  display: flex;
+  flex: 1;
+}
+
+.gantt-header-day {
+  min-width: 60px;
+  padding: 8px 4px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  background-color: #f8f9fa;
+}
+
+.gantt-header-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.gantt-header-weekday {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.gantt-body {
+  min-height: 200px;
+}
+
+.gantt-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  min-height: 60px;
+}
+
+.gantt-row:hover {
+  background-color: #f8f9fa;
+}
+
+.subtask-row {
+  background-color: #fafafa;
+  min-height: 50px;
+}
+
+.gantt-task-info {
+  min-width: 200px;
+  padding: 12px 16px;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.subtask-title {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.task-dates {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.task-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.progress-text {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.gantt-timeline {
+  display: flex;
+  flex: 1;
+}
+
+.gantt-day {
+  min-width: 60px;
+  border-right: 1px solid #eee;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gantt-task-bar {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 4px;
+  right: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gantt-task-bar:hover {
+  transform: scaleY(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subtask-bar {
+  top: 6px;
+  bottom: 6px;
+}
+
+.task-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.task-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+}
+
+.gantt-task-bar:hover .task-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gantt-legend {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gantt-legend h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.legend-item span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 스크롤바 스타일링 */
+.gantt-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gantt-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.gantt-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.gantt-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .gantt-header-task {
+    min-width: 150px;
+    padding: 12px;
+  }
+  
+  .gantt-task-info {
+    min-width: 150px;
+    padding: 8px 12px;
+  }
+  
+  .gantt-header-day {
+    min-width: 50px;
+    padding: 6px 2px;
+  }
+  
+  .gantt-day {
+    min-width: 50px;
+  }
+  
+  .task-title {
+    font-size: 0.8rem;
+  }
+  
+  .subtask-title {
+    font-size: 0.75rem;
+  }
+  
+  .task-dates {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .gantt-header-task {
+    min-width: 120px;
+    padding: 8px;
+  }
+  
+  .gantt-task-info {
+    min-width: 120px;
+    padding: 6px 8px;
+  }
+  
+  .gantt-header-day {
+    min-width: 40px;
+    padding: 4px 1px;
+  }
+  
+  .gantt-day {
+    min-width: 40px;
+  }
+  
+  .gantt-header-date {
+    font-size: 0.7rem;
+  }
+  
+  .gantt-header-weekday {
+    font-size: 0.6rem;
+  }
+}
