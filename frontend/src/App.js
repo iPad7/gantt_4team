@@ -78,34 +78,52 @@ function App() {
       <Router>
         <div className="App">
           {user && <Navigation />}
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/login" 
-                element={user ? <Navigate to="/dashboard" /> : <Login />} 
-              />
-              <Route 
-                path="/dashboard" 
-                element={user ? <Dashboard /> : <Navigate to="/login" />} 
-              />
-              <Route 
-                path="/gantt" 
-                element={user ? <GanttChart /> : <Navigate to="/login" />} 
-              />
-              <Route 
-                path="/tasks" 
-                element={user ? <TaskManagement /> : <Navigate to="/login" />} 
-              />
-              <Route 
-                path="/users" 
-                element={user && user.is_admin ? <UserManagement /> : <Navigate to="/dashboard" />} 
-              />
-              <Route 
-                path="/" 
-                element={<Navigate to={user ? "/dashboard" : "/login"} />} 
-              />
-            </Routes>
-          </div>
+          <Routes>
+            <Route 
+              path="/login" 
+              element={
+                <div className="container">
+                  {user ? <Navigate to="/dashboard" /> : <Login />}
+                </div>
+              } 
+            />
+            <Route 
+              path="/dashboard" 
+              element={
+                <div className="container">
+                  {user ? <Dashboard /> : <Navigate to="/login" />}
+                </div>
+              } 
+            />
+            <Route 
+              path="/gantt" 
+              element={
+                <div className="container-wide">
+                  {user ? <GanttChart /> : <Navigate to="/login" />}
+                </div>
+              } 
+            />
+            <Route 
+              path="/tasks" 
+              element={
+                <div className="container">
+                  {user ? <TaskManagement /> : <Navigate to="/login" />}
+                </div>
+              } 
+            />
+            <Route 
+              path="/users" 
+              element={
+                <div className="container">
+                  {user && user.is_admin ? <UserManagement /> : <Navigate to="/dashboard" />}
+                </div>
+              } 
+            />
+            <Route 
+              path="/" 
+              element={<Navigate to={user ? "/dashboard" : "/login"} />} 
+            />
+          </Routes>
         </div>
       </Router>
     </AuthContext.Provider>

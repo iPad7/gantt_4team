@@ -20,7 +20,8 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
     '.ngrok.io',
     '.ngrok-free.app',
-    '.ngrok.app'
+    '.ngrok.app',
+    'https://amused-peacock-good.ngrok-free.app'
 ]
 
 # Application definition
@@ -141,6 +142,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://127.0.0.1:3000",
     "https://*.ngrok-free.app",
     "https://*.ngrok.io",
+    "https://amused-peacock-good.ngrok-free.app"
 ]
 
 CSRF_COOKIE_SECURE = False

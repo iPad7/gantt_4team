@@ -133,6 +133,7 @@ const GanttChart = () => {
         {/* 헤더 */}
         <div className="gantt-header">
           <div className="gantt-header-task">작업</div>
+          <div className="gantt-header-status">진행 상황</div>
           <div className="gantt-header-timeline">
             {workDays.map((day, index) => (
               <div key={index} className="gantt-header-day">
@@ -173,13 +174,14 @@ const GanttChart = () => {
                         {format(new Date(task.end_date), 'MM/dd', { locale: ko })}
                       </div>
                     </div>
+                    <div className="gantt-task-status"></div>
                     <div className="gantt-timeline">
                       {workDays.map((day, index) => (
                         <div key={index} className="gantt-day">
                           {index >= startOffset && index < startOffset + width && (
                             <div 
                               className="gantt-task-bar"
-                              style={{ backgroundColor: task.color, width: '100%', height: '100%' }}
+                              style={{ backgroundColor: task.color, width: '100%' }}
                             >
                               <div className="task-tooltip">
                                 <strong>{task.title}</strong><br />
@@ -210,17 +212,17 @@ const GanttChart = () => {
                             {format(new Date(subtask.start_date), 'MM/dd', { locale: ko })} ~ 
                             {format(new Date(subtask.end_date), 'MM/dd', { locale: ko })}
                           </div>
-                          <div className="task-status">
-                            <span 
-                              className="status-badge"
-                              style={{ backgroundColor: getStatusColor(subtask.status) }}
-                            >
-                              {getStatusText(subtask.status)}
-                            </span>
-                            {subtask.progress > 0 && (
-                              <span className="progress-text">{subtask.progress}%</span>
-                            )}
-                          </div>
+                        </div>
+                        <div className="gantt-task-status">
+                          <span 
+                            className="status-badge"
+                            style={{ backgroundColor: getStatusColor(subtask.status) }}
+                          >
+                            {getStatusText(subtask.status)}
+                          </span>
+                          {subtask.progress > 0 && (
+                            <span className="progress-text">{subtask.progress}%</span>
+                          )}
                         </div>
                         <div className="gantt-timeline">
                           {workDays.map((day, index) => (
@@ -231,8 +233,7 @@ const GanttChart = () => {
                                   style={{ 
                                     backgroundColor: getStatusColor(subtask.status),
                                     opacity: 0.7,
-                                    width: '100%',
-                                    height: '100%'
+                                    width: '100%'
                                   }}
                                 >
                                   <div className="task-tooltip">

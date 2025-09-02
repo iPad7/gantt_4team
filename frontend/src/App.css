@@ -19,6 +19,17 @@
   padding: 20px 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-wide {
+  width: 95%;
+  margin: 0 auto;
+}
+
 .page-title {
   margin-bottom: 30px;
   color: #333;
